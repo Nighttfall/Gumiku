@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #080f1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Jarak antara card dan button */
+  }
+  
+  .card {
+    width: 640px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+  }
+  
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  
+  .card:hover .outside {
+    transform: rotateY(-130deg);
+  }
+  
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+  }
+  
+  .inside {
+    background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+    line-height: 2;
+    padding: 18px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+  }
+  
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+  
+  .front {
+    background-color: #ffffff;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  }
+  
+  .love-shape {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    width: 100px;
+    height: 100px;
+    background: red;
+    animation: pulse 1s infinite;
+  }
+  
+  .love-shape::before,
+  .love-shape::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+  }
+  
+  .love-shape::before {
+    top: -50px;
+    left: 0;
+  }
+  
+  .love-shape::after {
+    left: 50px;
+    top: 0;
+  }
+  
+  @keyframes pulse {
+    0% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+    50% { transform: translateX(-50%) rotate(-45deg) scale(1.1); }
+    100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+  }
+  
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #2d2d68;
+  }
+  
+  .inside h1 {
+    font-size: 120px;
+    line-height: 120px;
+  }
+  
+  @keyframes dropDown {
+    0% {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .card {
+    animation: dropDown 1s ease-out forwards;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  button:hover {
+    background-color: #f63c3c;
+  }
+  
+  .text {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.5;
+    text-align: center;
+    color: white;
+}
