@@ -1,4 +1,4 @@
-# 💌 Mensive
+# 💌 Kartu Ucapan
 Sebuah project web sederhana yang dibuat untuk menyampaikan pesan personal.
 
 ## ✨ Fitur
